@@ -1,6 +1,5 @@
 
-
-
+After importing the project into Eclipse or another IDE, first go to the YAML file and update the database schema, username, password, email, and service class by adding the OpenWeatherMap API key. Then, navigate to the Maven builder and enter the commands 'clean install.' After that, update and refresh the project. Finally, check the pom.xml file as well
 
 Weather Monitoring System (Spring Boot)
 Overview:
