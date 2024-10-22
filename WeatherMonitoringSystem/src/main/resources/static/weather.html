@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Monitoring System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body align="center">
+    <h1>Weather Monitoring System</h1>
+    
+    <form action="#" th:action="@{/api/weather/summary}" method="get">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="date">Date (YYYY-MM-DD):</label>
+        <input type="date" id="date" name="date" required>
+        
+        <button type="submit">Get Weather Summary</button>
+    </form>
+
+    <div th:if="${summary != null}">
+        <h2>Weather Summary for <span th:text="${summary.city}"></span> on <span th:text="${summary.date}"></span></h2>
+        <p>Average Temperature: <span th:text="${summary.avgTemp}"></span>°C</p>
+        <p>Maximum Temperature: <span th:text="${summary.maxTemp}"></span>°C</p>
+        <p>Minimum Temperature: <span th:text="${summary.minTemp}"></span>°C</p>
+        <p>Weather Condition: <span th:text="${summary.mainCondition}"></span></p>
+    </div>
+
+    <div th:if="${summary == null}">
+        <p>No data found for the given city and date.</p>
+    </div>
+</body>
+</html>

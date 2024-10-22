@@ -1,0 +1,47 @@
+# OpenWeatherMap API configuration
+weather:
+  api:
+    url: http://api.openweathermap.org/data/2.5/weather
+    key: c5c0c1173e1462a7712053764aac7b77  # Use the actual API key
+
+  alert:
+    temp:
+      threshold: 30  # Set your desired temperature threshold here
+
+# MySQL Database configuration
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/rule_engine
+    username: ${MYSQL_USERNAME:root}  # Default to 'root' if not set
+    password: ${MYSQL_PASSWORD:YOUR@13}  # Default password, change as necessary
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # Use 'create' for development, but 'update' or 'validate' for production
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  # Optional: Enable SQL console logging
+  show-sql: true
+  format-sql: true
+
+  # Mail configuration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:your_email)}  # Default email username
+    password: ${MAIL_PASSWORD:your_password}  # Default email password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  thymeleaf:
+    cache: false
+
+# Server port configuration
+server:
+  port: 8081
+
